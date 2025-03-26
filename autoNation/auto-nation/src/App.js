@@ -39,6 +39,7 @@ function App() {
       <header>
         <div className="logo">AUTONATION</div>
         <nav className="nav-links">
+          <div>dsdfsvcvxd</div>
           <a href="#home">Home</a>
           <a href="#market">Sell</a>
           {!isLoggedIn ? (
