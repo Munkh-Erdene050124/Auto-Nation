@@ -1,52 +1,251 @@
+<!--------Web Application project 1 ------>
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autonation - Монголын хамгийн том машин худалдаа</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <title>AutoNation | Vehicle sales v.2</title>
     <link rel="stylesheet" href="index.css">
+    <!-----Google fontsoos font tataj oruulj ireh-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-----bootstrap ashiglan icon ashiglah-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="logo"><img src="autonationLogo.svg" width="40px">AUTONATION</div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Нүүр</a></li>
-            <li><a href="sell.html">Зарах</a></li>
-            <li><a href="#login" id="authBtn">Нэвтрэх</a></li>
-            <li>
-                <a href="#profile" id="profileBtn" style="display: none;">
-                    <i class="fas fa-user-astronaut"></i>
-                </a>
-            </li>
-        </ul>
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </nav>
+    <!---navigation bar heseg-->
+    <section class="header">
+        <nav>
+            <a href="index.html"> <img src="images/Logo_AN.png"> </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li> <a href="index.html">Нүүр</a></li>
+                    <li> <a href="">Бүх зарууд</a></li>
+                    <li> <a href="sell.html">Зар нэмэх</a></li>
+                    <li> <a href="" class="nevtreh-btn">Нэвтрэх</a></li>
 
-    <section class="hero">
-        <h1 class="hero-title">Өөрийн байршлаа оруулж ойр буй машины зар үзэх</h1>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Машины загвар эсвэл нэрээр нь хайгаарай.">
-            <button id="searchBtn">ХАЙХ</button>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>Автомашины хамгийн том зарын нэгдсэн сайт</h1>
+            <p>Яг одоо худалдаалагдаж буй шинэ, хуучин автомашины найдвартай мэдээллийг 21 аймаг, 9 дүүргээс хайх боломжтой.</p>
+            <label for="country">Байршил сонгох:</label>
+            <select id="country">
+                            <option value="ub">Улаанбаатар</option>
+                            <option value="ara">Архангай</option>
+                            <option value="bao">Баян-Өлгий</option>
+                            <option value="bah">Баянхонгор</option>
+                            <option value="bul">Булган</option>
+                            <option value="goa">Говь-Алтай</option>
+                            <option value="gos">Говьсүмбэр</option>
+                            <option value="dau">Дархан-уул</option>
+                            <option value="bul">Булган</option>
+                            <option value="dor">Дорноговь</option>
+                            <option value="dod">Дорнод</option>
+                            <option value="dud">Дундговь</option>
+                            <option value="zav">Завхан</option>
+                            <option value="uvu">Өвөрхангай</option>
+                            <option value="umn">Өмнөговь</option>
+                            <option value="orh">Орхон</option>
+                            <option value="suh">Сүхбаатар</option>
+                            <option value="sel">Сэлэнгэ</option>
+                            <option value="tuv">Төв</option>
+                            <option value="uvs">Увс</option>
+                            <option value="hov">Ховд</option>
+                            <option value="hen">Хэнтий</option>
+                            </select>
+            <button id="selectBtn">Сонгох</button>
+            <p href="" id="selectedCountry"></p>
+            <a href="" class="start-btn">Эхлэх</a>
+        </div>
+    </section>
+    <!-------Search bar hiih heseg-->
+    <section class="searchBar">
+        <div class="mainSearch">
+            <div class="searchTitle">Автомашин хайх</div>
+            <div class="searchsection">
+                <form id="form">
+                    <div class="search-fields">
+                        <input type="text" id="query" name="q" placeholder="Машины нэр..." />
+                        <select id="brand" name="brand">
+                            <option value="">Брэнд сонгох</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Tesla">Tesla</option>
+                        </select>
+                        <select id="manufacturer" name="manufacturer">
+                            <option value="">Үйлдвэрлэгч сонгох</option>
+                            <option value="Japan">Япон</option>
+                            <option value="Germany">Герман</option>
+                            <option value="USA">АНУ</option>
+                            <option value="Korea">Солонгос</option>
+                        </select>
+                        <select id="yearDropdown">
+                            <option value="" selected disabled> Select Year </option>
+                        </select>
+
+                        <!-- Link to external JavaScript -->
+                        <script src="script.js"></script>
+                    </div>
+                    <button type="submit" class="search-btn">Хайх</button>
+                </form>
+            </div>
         </div>
     </section>
 
-    <section id="car-list" class="car-grid">
-        <div class="loading-spinner"></div>
-    </section>
 
-    <div class="modal" id="carModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div id="carModalContent"></div>
+    <!---------Zar haruulah hesguud------>
+    <div class="zaruud">
+        <h2>Шинэ зарууд</h2>
+        <div class="row">
+            <div class="col-4 product-card">
+                <figure>
+                    <img src="images/HarrierBlack1.jpg" alt="Toyota Harrier 2016">
+                </figure>
+                <div class="product-info">
+                    <h4 class="product-title">Toyota Harrier 2018</h4>
+                    <div class="product-details">
+                        <span><i class="fa fa-tachometer"></i> 12,000 км</span>
+                        <span><i class="fa fa-leaf"></i> Хибрид</span>
+                        <span><i class="fa fa-newspaper-o"></i> Дугааргүй</span>
+                    </div>
+                    <p class="price">87,000,000₮</p>
+                    <a href="#" class="btn-details">Дэлгэрэнгүй</a>
+                </div>
+            </div>
+
+            <div class="col-4 product-card">
+                <figure>
+                    <img src="images/prius60white.avif" alt="Toyota Prius 2024">
+                </figure>
+                <div class="product-info">
+                    <h4 class="product-title">Toyota Prius 2020</h4>
+                    <div class="product-details">
+                        <span><i class="fa fa-tachometer"></i> 0км</span>
+                        <span><i class="fa fa-leaf"></i> Хибрид</span>
+                        <span><i class="fa fa-newspaper-o"></i> Дугааргүй</span>
+                    </div>
+                    <p class="price">125,000,000₮</p>
+                    <a href="#" class="btn-details">Дэлгэрэнгүй</a>
+                </div>
+            </div>
+
+            <div class="col-4 product-card">
+                <figure>
+                    <img src="images/220crown.jpg" alt="Toyota Land Cruiser 2021">
+                </figure>
+                <div class="product-info">
+                    <h4 class="product-title">Toyota Crown 2020</h4>
+                    <div class="product-details">
+                        <span><i class="fa fa-tachometer"></i> 5,000 км</span>
+                        <span><i class="fa fa-leaf"></i> Хибрид</span>
+                        <span><i class="fa fa-newspaper-o"></i> Дугаартай</span>
+                    </div>
+                    <p class="price">210,000,000₮</p>
+                    <a href="#" class="btn-details">Дэлгэрэнгүй</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 product-card">
+                <figure>
+                    <img src="images/cybertruck.avif" alt="Tesla CyberTruck 2024">
+                </figure>
+                <div class="product-info">
+                    <h4 class="product-title">Tesla CyberTruck 2024</h4>
+                    <div class="product-details">
+                        <span><i class="fa fa-tachometer"></i> 0 км</span>
+                        <span><i class="fa fa-leaf"></i> Хибрид</span>
+                        <span><i class="fa fa-newspaper-o"></i> Дугааргүй</span>
+                    </div>
+                    <p class="price">87,000,000₮</p>
+                    <a href="#" class="btn-details">Дэлгэрэнгүй</a>
+                </div>
+            </div>
+
+            <div class="col-4 product-card">
+                <figure>
+                    <img src="images/G63.jpg">
+                </figure>
+                <div class="product-info">
+                    <h4 class="product-title">Mercedes Benz G63 2022</h4>
+                    <div class="product-details">
+                        <span><i class="fa fa-tachometer"></i> 0км</span>
+                        <span><i class="fa fa-leaf"></i> Хибрид</span>
+                        <span><i class="fa fa-newspaper-o"></i> Дугааргүй</span>
+                    </div>
+                    <p class="price">125,000,000₮</p>
+                    <a href="#" class="btn-details">Дэлгэрэнгүй</a>
+                </div>
+            </div>
+
+            <div class="col-4 product-card">
+                <figure>
+                    <img src="images/bmwM4.avif">
+                </figure>
+                <div class="product-info">
+                    <h4 class="product-title">BMW M4 2021</h4>
+                    <div class="product-details">
+                        <span><i class="fa fa-tachometer"></i> 5,000 км</span>
+                        <span><i class="fa fa-leaf"></i> Хибрид</span>
+                        <span><i class="fa fa-newspaper-o"></i> Дугаартай</span>
+                    </div>
+                    <p class="price">210,000,000₮</p>
+                    <a href="#" class="btn-details">Дэлгэрэнгүй</a>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <!------footer---->
+    <div class="footer">
+        <div class="containaer">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and iOS mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/apple-logo-transparent.svg">
+                        <img src="images/play-store-logo3.png">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/Logo_AN.png">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque saepe officia</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policies</li>
+                        <li>Join affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
 </body>
 
 </html>
