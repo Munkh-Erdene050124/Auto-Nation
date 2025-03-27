@@ -1,41 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Машинаа зар || Sell Your Car - Autonation</title>
+    <title>Машинаа зар || AutoNation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-----Google fontsoos font tataj oruulj ireh-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-----bootstrap ashiglan icon ashiglah-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="sellstyles.css">
 </head>
 
 <body>
-    <!-- Navigation bar heseg -->
-    <nav class="navbar">
-        <div class="logo"><img src="autonationLogo.svg" width="40px">AUTONATION</div>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Нүүр</a></li>
-            <li><a href="">Бүх зарууд</a></li>
-            <li><a href="sell.html">Зар нэмэх</a></li>
-            <li><a href="#login" id="authBtn">Нэвтрэх</a></li>
-            <li>
-                <a href="#profile" id="profileBtn" style="display: none;">
-                    <i class="fas fa-user-astronaut"></i>
-                </a>
-            </li>
-        </ul>
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </nav>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="images/Logo_AN.png" alt="AutoNation Logo"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Нүүр</a></li>
+                    <li><a href="listings.html">Бүх зарууд</a></li>
+                    <li><a href="sell.html">Зар нэмэх</a></li>
+                    <li><a href="sign.html" class="nevtreh-btn">Нэвтрэх</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
 
-    <!-- Sell Form -->
     <div class="sell-container">
         <div class="form-header">
             <h1>Машинаа Хурдан Зар</h1>
@@ -127,6 +121,40 @@
         </form>
     </div>
 
+    <div class="footer">
+        <div class="containaer">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <div class="app-logo">
+                        <img src="images/apple-logo-transparent.svg" alt="App Store">
+                        <img src="images/play-store-logo3.png" alt="Play Store">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/Logo_AN.png" alt="AutoNation">
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful links</h3>
+                    <ul>
+                        <li><a href="#">Coupons</a></li>
+                        <li><a href="#">Blog Post</a></li>
+                        <li><a href="#">Return Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
     <script src="sellscript.js"></script>
 </body>
 

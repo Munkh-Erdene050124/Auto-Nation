@@ -1,100 +1,19 @@
-/* === Global Styles === */
+/* sell.css */
 
 :root {
-    --primary: #00ff88;
-    --dark: #121212;
-    --light: #ffffff;
-    --card-bg: #1e1e1e;
-    --gradient: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+    --white: #fff;
+    --blue: #5391f5;
+    --gray: #bababa;
+    --black: #000;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: var(--dark);
-    color: var(--light);
-    min-height: 100vh;
-    line-height: 1.6;
-}
-
-
-/* === Navigation Bar === */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    background: rgba(18, 18, 18, 0.98);
-    backdrop-filter: blur(12px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    z-index: 1000;
-    border-bottom: 2px solid var(--primary);
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.1);
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: 800;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    list-style: none;
-}
-
-.nav-links a {
-    color: var(--light);
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-.nav-links a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gradient);
-    transition: width 0.4s ease;
-}
-
-.nav-links a:hover {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.nav-links a:hover::before {
-    width: 100%;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    padding: 0.5rem;
-    border-radius: 8px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.roboto-primary {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    /* Change this to the desired weight */
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
 }
 
 
@@ -102,294 +21,166 @@ body {
 
 .sell-container {
     max-width: 1200px;
-    margin: 4rem auto;
-    padding: 0 2rem;
+    margin: 50px auto;
+    padding: 30px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 40px;
 }
 
 .form-header h1 {
-    font-size: 3rem;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 15px;
 }
 
 .form-header p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--gray);
+    font-size: 1.1rem;
 }
 
 
-/* === Form Layout === */
+/* === Form Elements === */
 
 .advanced-form {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 25px;
 }
 
 .form-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 30px;
 }
 
-.form-col {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--black);
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+textarea:focus {
+    border-color: var(--blue);
+    outline: none;
+    box-shadow: 0 0 5px rgba(83, 145, 245, 0.3);
 }
 
 
 /* === Image Upload Section === */
 
 .image-upload {
-    border: 3px dashed var(--primary);
-    border-radius: 16px;
-    padding: 2rem;
+    border: 2px dashed var(--gray);
+    border-radius: 8px;
+    padding: 20px;
     text-align: center;
-    background: rgba(0, 255, 136, 0.05);
-    transition: all 0.4s ease;
-}
-
-.image-upload:hover {
-    border-style: solid;
-    background: rgba(0, 255, 136, 0.1);
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.1);
 }
 
 .drop-zone {
     cursor: pointer;
-    padding: 2rem;
+    padding: 15px;
 }
 
 .drop-zone i {
-    font-size: 3rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-.drop-zone p {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.drop-zone span {
-    color: rgba(255, 255, 255, 0.7);
-    display: block;
-    margin-bottom: 1rem;
+    color: var(--blue);
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
 .browse-btn {
-    background: var(--primary);
-    color: var(--dark);
+    background: var(--blue);
+    color: var(--white);
     border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 8px;
-    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.browse-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+    margin-top: 10px;
 }
 
 .image-preview {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .preview-image {
     width: 100%;
     height: 150px;
     object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid rgba(0, 255, 136, 0.2);
-    transition: all 0.3s ease;
-}
-
-.preview-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
-}
-
-
-/* === Form Elements === */
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.form-group label {
-    font-weight: 600;
-    color: var(--primary);
-}
-
-.form-group input {
-    padding: 1rem;
-    border: 2px solid rgba(0, 255, 136, 0.2);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--light);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    border-radius: 5px;
 }
 
 
 /* === Specifications Editor === */
 
 .specs-editor {
-    background: rgba(0, 255, 136, 0.05);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 2px solid rgba(0, 255, 136, 0.2);
-}
-
-.specs-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    padding: 20px;
 }
 
 .spec-item {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
-}
-
-.spec-item input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(0, 255, 136, 0.2);
-    border-radius: 8px;
-    padding: 0.75rem;
-    color: var(--light);
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
 .add-spec-btn {
-    background: rgba(0, 255, 136, 0.1);
-    color: var(--primary);
-    border: 2px dashed var(--primary);
-    width: 100%;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 12px;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: 700;
-    transition: all 0.3s ease;
-}
-
-.add-spec-btn:hover {
-    background: var(--primary);
-    color: var(--dark);
-    border-style: solid;
-}
-
-
-/* === Textarea === */
-
-textarea {
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(0, 255, 136, 0.2);
-    border-radius: 12px;
-    padding: 1rem;
-    color: var(--light);
-    font-size: 1rem;
-    min-height: 150px;
-    resize: vertical;
-    transition: all 0.3s ease;
-}
-
-textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
 }
 
 
 /* === Publish Button === */
 
 .publish-btn {
-    background: var(--gradient);
-    color: var(--dark);
+    background: var(--blue);
+    color: var(--white);
     border: none;
-    padding: 1.5rem 3rem;
-    border-radius: 16px;
-    font-size: 1.2rem;
-    font-weight: 800;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 5px 25px rgba(0, 255, 136, 0.3);
-}
-
-.publish-btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transform: rotate(45deg);
-    animation: shine 3s infinite;
-}
-
-@keyframes shine {
-    0% {
-        left: -50%;
-    }
-    100% {
-        left: 150%;
-    }
-}
-
-.publish-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 35px rgba(0, 255, 136, 0.5);
+    width: 100%;
 }
 
 
-/* === Mobile Responsiveness === */
+/* === Responsive Design === */
 
 @media (max-width: 768px) {
     .form-columns {
         grid-template-columns: 1fr;
     }
-    .form-row {
-        grid-template-columns: 1fr;
+    .sell-container {
+        padding: 20px;
+        margin: 30px 15px;
     }
-    .image-preview {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .publish-btn {
-        width: 100%;
-        padding: 1.5rem;
+    .form-header h1 {
+        font-size: 1.8rem;
     }
 }
